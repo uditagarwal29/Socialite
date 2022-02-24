@@ -2,7 +2,6 @@ const express = require('express'); //shares same express instance as that in ma
 const router = express.Router();
 const usersController = require('../controllers/users_controller')
 const passport = require('passport');
-// const postsController = require('../controllers/posts_controller')
 
 //for users request like profile, feed etc we use users_controller
 //passing checkauthentication as middleware so that profile page is accessible only when user is logged in

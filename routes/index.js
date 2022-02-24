@@ -6,7 +6,7 @@ const homeController = require('../controllers/home_controller')
 router.get('/', homeController.home)
 
 //requests related to user is  redirected to users router
-router.use('/users', require('./users.js'))
-
+router.use('/users', require('./users'))
+router.use('/posts', require('./posts'))
 
 module.exports = router;
