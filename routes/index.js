@@ -8,5 +8,6 @@ router.get('/', homeController.home)
 //requests related to user is  redirected to users router
 router.use('/users', require('./users'))
 router.use('/posts', require('./posts'))
+router.use('/comments', require('./comments'))
 
 module.exports = router;

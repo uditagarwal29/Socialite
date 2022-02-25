@@ -1,7 +1,7 @@
 const User = require('../models/user')
 
 module.exports.profile = function (req, res) {
-    console.log(req.cookies.codial)
+    // console.log(req.cookies.codial)
     return res.render('user_profile', { title: 'Codial' })
 }
 
