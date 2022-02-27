@@ -5,7 +5,10 @@ const passport = require('passport');
 
 //for users request like profile, feed etc we use users_controller
 //passing checkauthentication as middleware so that profile page is accessible only when user is logged in
-router.get('/profile', passport.checkAuthentication, usersController.profile)
+router.get('/profile/:id', passport.checkAuthentication, usersController.profile)
+router.post('/update/:id', passport.checkAuthentication, usersController.update);
+
+
 // router.get('/post', postsController.posts)
 
 router.get('/sign-up', usersController.signUp);
