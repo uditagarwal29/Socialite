@@ -1,6 +1,8 @@
 const express = require("express");
 const cookieParser = require('cookie-parser');
 const expressLayouts = require('express-ejs-layouts')
+const flash = require('connect-flash');
+const customMware = require('./config/middleware')
 const app = express();
 const PORT = 8000;
 const db = require('./config/mongoose');
@@ -44,6 +46,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);  //checks if session cookie is present and sets user in locals
+
+//defining flash connect after session defination because we need session cookies for this
+app.use(flash());
+app.use(customMware.setFlash)
 
 
 //Use express main router
