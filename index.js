@@ -20,7 +20,6 @@ app.use(expressLayouts);
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
 
-
 //any request that comes in is redirected to the main route handler index.js in the routes directory
 app.set('view engine', 'ejs');
 app.set('views', './views');
