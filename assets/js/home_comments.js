@@ -12,21 +12,17 @@
                 url: '/comments/create',
                 data: newCommentForm.serialize(),
                 success: function (data) {
-                    // console.log(data);
                     let newComment = newCommentDom(data.data.comment);
                     $(' .post-comments-list>ul').prepend(newComment);
                     iterate_comment();
                     deleteComment($(' .delete-comment-button', newComment));
 
                     new Noty({
-
                         theme: 'relax',
                         type: 'success',
                         text: 'Comment Added!!!',
                         layout: 'topRight',
                         timeout: 1500
-
-
                     }).show();
                 }, error: function (error) {
                     console.log(error.responseText);
@@ -38,22 +34,12 @@
         return $(`
         <li id="comment-${comment._id}">
             <p>
-                <small>
-                    
-                ${comment.user.name}
-                </small>
-                <div>
-                ${comment.content}
-                </div>
-                
-                <small>
-                            
-              
+                <small> ${comment.user.name}</small>
+                <div>${comment.content}</div>
+            <small>
             </small>
-                <div>
-                    
-                <a class="delete-comment-button" href="/comments/destroy/${comment._id}">x</a>
-                        
+                <div> 
+                    <a class="delete-comment-button" href="/comments/destroy/${comment._id}">x</a>        
                 </div>
             </p>
             </li>`);

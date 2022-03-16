@@ -10,13 +10,34 @@ module.exports.profile = function (req, res) {
     })
 }
 
-module.exports.update = function (req, res) {
+module.exports.update = async function (req, res) {
     if (req.user.id == req.params.id) {
-        User.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
-            req.flash('success', 'Profile updated!')
+        try {
+            let user = await User.findById(req.params.id);
+            //multer method uploadedAvatar takes in req and can then access uploaded files data and other form data
+            User.uploadedAvatar(req, res, function (err) {
+                if (err) {
+                    console.log("Multer gave error");
+                }
+                //updating user with form data
+                user.name = req.body.name;
+                user.email = req.body.email;
+                // console.log(req.file)
+                if (req.file) {
+                    //saving the path of the uploaded file in the avatar field of user in the userschema database
+                    user.avatar = User.avatarPath + '/' + req.file.filename
+                }
+                user.save();
+                req.flash('success', 'Profile Updated');
+                return res.redirect('back');
+            })
+        } catch (err) {
+            req.flash('error', err);
             return res.redirect('back');
-        })
+        }
+
     } else {
+        req.flash('error', 'Not Authorized')
         return res.status(401).send('Unauthorized')
     }
 }

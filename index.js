@@ -18,6 +18,8 @@ app.use(cookieParser());
 
 //extract styles and scripts from sub pages into the layout
 app.use(express.static('./assets'));
+//making uplaods directory available for browser to access images inside it
+app.use('/uploads', express.static(__dirname+'/uploads'))
 app.use(expressLayouts);
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
