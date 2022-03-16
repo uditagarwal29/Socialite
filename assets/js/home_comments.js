@@ -1,49 +1,49 @@
 {
-    let createComment=function(){
-        let newCommentForm=$(`#post-${post._id}-comments-form`);
-    
+    let createComment = function () {
+        let newCommentForm = $(`#post-${post._id}-comments-form`);
+
         console.log(newCommentForm);
 
-        newCommentForm.submit(function(e){
+        newCommentForm.submit(function (e) {
             e.preventDefault();
 
             $.ajax({
-                type:'post',
-                url:'/comments/create',
-                data:newCommentForm.serialize(),
-                success:function(data){
+                type: 'post',
+                url: '/comments/create',
+                data: newCommentForm.serialize(),
+                success: function (data) {
                     // console.log(data);
-                    let newComment=newCommentDom(data.data.comment);
+                    let newComment = newCommentDom(data.data.comment);
                     $(' .post-comments-list>ul').prepend(newComment);
                     iterate_comment();
                     deleteComment($(' .delete-comment-button', newComment));
-                    
+
                     new Noty({
 
-                        theme:'relax',
-                        type:'success',
-                        text:'Comment Added!!!',
-                        layout:'topRight',
-                        timeout:1500
+                        theme: 'relax',
+                        type: 'success',
+                        text: 'Comment Added!!!',
+                        layout: 'topRight',
+                        timeout: 1500
 
 
                     }).show();
-                },error:function(error){
+                }, error: function (error) {
                     console.log(error.responseText);
                 }
             });
         });
     }
-    let newCommentDom=function(comment){
+    let newCommentDom = function (comment) {
         return $(`
-        <li id="comment-${ comment._id }">
+        <li id="comment-${comment._id}">
             <p>
                 <small>
                     
-                ${ comment.user.name }
+                ${comment.user.name}
                 </small>
                 <div>
-                ${ comment.content }
+                ${comment.content}
                 </div>
                 
                 <small>
@@ -52,7 +52,7 @@
             </small>
                 <div>
                     
-                <a class="delete-comment-button" href="/comments/destroy/${ comment._id }">x</a>
+                <a class="delete-comment-button" href="/comments/destroy/${comment._id}">x</a>
                         
                 </div>
             </p>
@@ -60,43 +60,43 @@
     }
     //method to delete any comment 
     // method to iterate over all post  delete button
-    let iterate_comment=function(){
-        let loop=$('.delete-comment-button');
-        for(i of loop ){
+    let iterate_comment = function () {
+        let loop = $('.delete-comment-button');
+        for (i of loop) {
             deleteComment(i);
         }
     }
-   
-    let deleteComment=function(deleteLink){
-        $(deleteLink).click(function(e){
+
+    let deleteComment = function (deleteLink) {
+        $(deleteLink).click(function (e) {
             e.preventDefault();
 
             $.ajax({
-                type:'get',
-                url:$(deleteLink).prop('href'),
-                
-                success:function(data){
+                type: 'get',
+                url: $(deleteLink).prop('href'),
+
+                success: function (data) {
                     console.log(data);
                     $(`#comment-${data.data.comment_id}`).remove();
                     new Noty({
 
-                        theme:'relax',
-                        type:'success',
-                        text:'Comment deleted!!!',
-                        layout:'topRight',
-                        timeout:1500
+                        theme: 'relax',
+                        type: 'success',
+                        text: 'Comment deleted!!!',
+                        layout: 'topRight',
+                        timeout: 1500
 
 
                     }).show();
-                },error:function(error){
+                }, error: function (error) {
                     console.log(error.responseText);
                 }
             });
         });
     }
-    
+
     createComment();
     iterate_comment();
-    
+
 }
 
