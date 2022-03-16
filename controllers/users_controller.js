@@ -1,5 +1,6 @@
 const User = require('../models/user')
-
+const fs = require('fs') //file system module
+const path = require('path')
 module.exports.profile = function (req, res) {
     // console.log(req.cookies.codial)
     User.findById(req.params.id, function (err, user) {
@@ -24,6 +25,14 @@ module.exports.update = async function (req, res) {
                 user.email = req.body.email;
                 // console.log(req.file)
                 if (req.file) {
+                    //EDGE CASE - if user avatar already exist -> delete existing avatarfirst
+                    if (user.avatar) {
+                        //if the file of that avatar exists
+                        if (fs.existsSync(path.join(__dirname, "..", user.avatar))) {
+                            //deleting the file (old avatar)  --> unlinkSync = synchronously remove a file
+                            fs.unlinkSync(path.join(__dirname, "..", user.avatar));
+                        }
+                    }
                     //saving the path of the uploaded file in the avatar field of user in the userschema database
                     user.avatar = User.avatarPath + '/' + req.file.filename
                 }
