@@ -1,19 +1,29 @@
 {
-    //method to submit form data using aajax
+    //method to submit form data using ajax
     let createPost = function () {
         let newPostForm = $('#new-post-form'); //get the new post form from home.ejs
         newPostForm.submit(function (e) {
             e.preventDefault();
-            $.ajax({
+            $.ajax({ 
                 type: 'post',
-                url: '/posts/create',  //wheere to submit form
+                url: '/posts/create',  //where to submit form
                 data: newPostForm.serialize(), //this converts post data into json format
                 success: function (data) {
-                    console.log(data.data.post.user.name)
+                    // console.log(data.data.post.user.name)
                     let newPost = newPostDom(data.data.post)
-                    $('#posts-container>ul').prepend(newPost)
+                    $('#posts-container>ul').prepend(newPost)  // prepend adds at starting of array
                     //passing a tag class to the dletepost method defined below
                     deletePost($('.delete-post-button', newPost)); //newPost has .delete-psot-button class inside it
+
+                    new Noty({
+                        theme: 'relax',
+                        text: "Post Created!",
+                        type: 'success',
+                        layout: 'topRight',
+                        timeout: 1500
+                        
+                    }).show();
+
                 }, error: function (error) {
                     console.log(error.responseText);
                 }
@@ -66,9 +76,17 @@
             e.preventDefault();
             $.ajax({
                 type: 'get',
-                url: $(deleteLink).prop('href'),
+                url: $(deleteLink).prop('href'),  // to get href value
                 success: function (data) {
-                    $(`#posts-${data.data.post_id}`).remove();
+                    $(`#post-${data.data.post_id}`).remove();
+                    new Noty({
+                        theme: 'relax',
+                        text: "Post Deleted",
+                        type: 'success',
+                        layout: 'topRight',
+                        timeout: 1500
+                        
+                    }).show();
                 }, error: function (error) {
                     console.log(error.responseText);
                 }

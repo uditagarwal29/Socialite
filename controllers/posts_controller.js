@@ -7,16 +7,18 @@ module.exports.create = async function (req, res) {
             content: req.body.content,
             user: req.user._id
         });
-        req.flash('success', 'Post created ')
+
         //detect if request is an ajax request which is xhr request
         if (req.xhr) {
+            post = await post.populate('user', 'name');
+            // req.flash('success', 'Post created ')
             return res.status(200).json({
                 data: {
                     post: post
                 }, message: "Post created"
             });
         }
-
+        req.flash('success', 'Post created ')
         return res.redirect('back');
     } catch (err) {
         req.flash('error', err)

@@ -15,7 +15,7 @@ module.exports.home = async function (req, res) {
     //populate is used to fetch user details from userSchema using the userID that is stored for a particular post in the postSchema  
     try {
         let posts = await Post.find({})
-            .sort('-createdAt')
+            .sort('-createdAt')  // sorts posts by latest on top and oldest at bottom
             .populate('user')
             .populate({
                 path: 'comments',
