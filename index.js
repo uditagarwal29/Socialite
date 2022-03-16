@@ -1,7 +1,7 @@
 const express = require("express");
 const cookieParser = require('cookie-parser');
 const expressLayouts = require('express-ejs-layouts')
-const flash = require('connect-flash');
+const flash = require('connect-flash')
 const customMware = require('./config/middleware')
 const app = express();
 const PORT = 8000;
@@ -33,7 +33,7 @@ app.use(session({
     secret: 'random', //key to encrypt session data
     saveUninitialized: false,  // if the user has not logged in and session is not created we dont want to initialize cookie with extra data
     resave: false, // we dont want to rewrite current session's info
-    cookie: {
+    cookie: { //age of cookie(in milliseconds)
         maxAge: (1000 * 60 * 100)
     },
     //function to permanently store session , even when server is expired or stopped
@@ -49,7 +49,7 @@ app.use(passport.setAuthenticatedUser);  //checks if session cookie is present a
 
 //defining flash connect after session defination because we need session cookies for this
 app.use(flash());
-app.use(customMware.setFlash)
+app.use(customMware.setFlash);
 
 
 //Use express main router

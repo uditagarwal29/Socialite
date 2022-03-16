@@ -36,7 +36,7 @@ module.exports.destroy = async function (req, res) {
             let postId = comment.post;
             comment.remove();
             let post = Post.findByIdAndUpdate(postId, { $pull: { comments: req.params.id } })
-            req.flash('success', 'Comment destroyed')
+            req.flash('success', 'Comment deleted')
             return res.redirect('back')
         } else {
             req.flash('success', 'Not authorized to do this')
