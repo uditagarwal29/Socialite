@@ -1,4 +1,4 @@
-<li>
+<!-- <li>
     <p>
         <% if(locals.user && ((locals.user.id==comment.user.id) || (locals.user.id==post.user.id)) ) { %>
             <small>
@@ -8,5 +8,23 @@
                 <%= comment.content %>
                     <br>
                     <%=comment.user.name %>
+    </p>
+</li> -->
+
+
+<li id="comment-<%= comment._id %>" class="comment-container">
+    <p class="comment-user-info">
+        <%= comment.user.name %>
+    </p>
+    <p class="comment-content">
+    <div class="content">
+        <%= comment.content %>
+    </div>
+    <div class="delete-button">
+        <% if(locals.user && ((locals.user.id==comment.user.id )||( locals.user.id==post.user.id))){%>
+            <a class="delete-comment-button" href="/comments/destroy/<%= comment._id %>">x</a>
+
+            <% } %>
+    </div>
     </p>
 </li>

@@ -22,7 +22,8 @@ module.exports.home = async function (req, res) {
                 //further populating comments path to get user who made the comment
                 populate: {
                     path: 'user'
-                }
+                }, 
+                options: { sort: { 'createdAt':  -1 } } // sort comments by latest
             })
 
         let users = await User.find({})
