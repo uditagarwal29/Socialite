@@ -18,6 +18,7 @@ module.exports.create = async function (req, res) {
             post.save(); //to save to db from memory
 
             if (req.xhr) {
+                comment = await comment.populate('user', 'name');
                 // Similar for comments to fetch the user's id!
                 return res.status(200).json({
                     data: {
