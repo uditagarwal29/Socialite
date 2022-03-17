@@ -4,12 +4,13 @@ const Comment = require('../../../models/comment')
 module.exports.index = async function (req, res) {
     let posts = await Post.find({})
         .sort('-createdAt')  // sorts posts by latest on top and oldest at bottom
-        .populate('user')
+        .populate('user', '-password') //excluding password from api's json response
         .populate({
             path: 'comments',
             //further populating comments path to get user who made the comment
             populate: {
-                path: 'user'
+                path: 'user',
+                select: { 'password': 0 } //exlcude password from comments array
             },
             options: { sort: { 'createdAt': -1 } } // sort comments by latest
         })
