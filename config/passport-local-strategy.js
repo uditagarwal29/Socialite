@@ -23,7 +23,6 @@ passport.use(new LocalStrategy({
                 req.flash('error', 'Invalid Username/Password')
                 return done(null, false); //here error is null and authetication is not done so returning false to done.
             }
-    
             //if user found
             return done(null, user);
         });

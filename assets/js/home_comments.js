@@ -4,7 +4,7 @@
 
         console.log(newCommentForm);
 
-        newCommentForm.submit(function (e) {
+        newCommentForm.submit(function(e){
             e.preventDefault();
 
             $.ajax({

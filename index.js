@@ -6,6 +6,7 @@ const customMware = require('./config/middleware')
 const app = express();
 const PORT = 8000;
 const db = require('./config/mongoose');
+const passportGoogle = require('./config/passport-google-oauth2-strategy');
 
 //used for session cookie and user authorization
 const session = require('express-session');

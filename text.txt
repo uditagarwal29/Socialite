@@ -1,0 +1,4 @@
+google oauth
+
+CLIENT ID : 1053588864915-d7lecvivebi5rba6cqihm3neic5on3fv.apps.googleusercontent.com
+client secret : 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
