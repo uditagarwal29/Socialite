@@ -14,7 +14,7 @@
                 success: function (data) {
                     let newComment = newCommentDom(data.data.comment);
                     $(' .post-comments-list>ul').prepend(newComment);
-                    iterate_comment();
+                    // iterate_comment();
                     deleteComment($(' .delete-comment-button', newComment));
 
                     new Noty({
@@ -46,12 +46,12 @@
     }
     //method to delete any comment 
     // method to iterate over all post  delete button
-    let iterate_comment = function () {
-        let loop = $('.delete-comment-button');
-        for (i of loop) {
-            deleteComment(i);
-        }
-    }
+    // let iterate_comment = function () {
+    //     let loop = $('.delete-comment-button');
+    //     for (i of loop) {
+    //         deleteComment(i);
+    //     }
+    // }
 
     let deleteComment = function (deleteLink) {
         $(deleteLink).click(function (e) {
@@ -65,13 +65,11 @@
                     console.log(data);
                     $(`#comment-${data.data.comment_id}`).remove();
                     new Noty({
-
                         theme: 'relax',
                         type: 'success',
                         text: 'Comment deleted!!!',
                         layout: 'topRight',
                         timeout: 1500
-
 
                     }).show();
                 }, error: function (error) {
@@ -82,7 +80,7 @@
     }
 
     createComment();
-    iterate_comment();
+    // iterate_comment();
 
 }
 

@@ -11,6 +11,7 @@ const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy')
+const passportJWT = require('./config/passport-jwt-strategy')
 const MongoStore = require('connect-mongo'); //to store session information
 
 app.use(express.urlencoded());
@@ -19,7 +20,7 @@ app.use(cookieParser());
 //extract styles and scripts from sub pages into the layout
 app.use(express.static('./assets'));
 //making uplaods directory available for browser to access images inside it
-app.use('/uploads', express.static(__dirname+'/uploads'))
+app.use('/uploads', express.static(__dirname + '/uploads'))
 app.use(expressLayouts);
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
@@ -39,13 +40,15 @@ app.use(session({
         maxAge: (1000 * 60 * 100)
     },
     //function to permanently store session , even when server is expired or stopped
+    //everytime we refresh our server all users are logged out and session cookie resets
+    //so we store our session cookie in a persistent storage, i.e mongoDB
     store: MongoStore.create({
         mongoUrl: 'mongodb://localhost:27017/codeial_development'
     }, function (err) {
         console.log(err || 'connect-mongodb-setup ok')
     })
 }));
-app.use(passport.initialize());
+app.use(passport.initialize());  
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);  //checks if session cookie is present and sets user in locals
 
