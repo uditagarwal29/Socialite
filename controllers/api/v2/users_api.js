@@ -7,7 +7,7 @@ module.exports.createSession = async function (req, res) {
         //find user from sign in form data
         let user = await User.findOne({ email: req.body.email });
 
-        // if user nto found or password incorrect
+        // if user not found or password incorrect
         if (!user || user.password != req.body.password) {
             return res.json(422, {
                 message: "Invalid username/password"
@@ -19,6 +19,7 @@ module.exports.createSession = async function (req, res) {
             data: {
                 user_email: user.email,
                 password: user.password,
+                //creating jwt token for user and signing it
                 token: jwt.sign(user.toJSON(), 'codeial', { expiresIn: '100000' })
             }
         })
