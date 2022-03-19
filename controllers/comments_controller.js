@@ -1,5 +1,6 @@
 const Comment = require('../models/comment')
 const Post = require('../models/post')
+const commentsMailer = require('../mailers/comments_mailer')
 
 module.exports.create = async function (req, res) {
     //req.body.post is POst Id
@@ -17,8 +18,11 @@ module.exports.create = async function (req, res) {
             post.comments.push(comment);  //Update function in crud
             post.save(); //to save to db from memory
 
+            comment = await comment.populate('user', 'name email');  //populating name and email of maker of the comment
+            //whenever a new comment is created we pass it to the mailer so that it can send the email update to the comment maker
+            commentsMailer.newComment(comment);
             if (req.xhr) {
-                comment = await comment.populate('user', 'name');
+
                 // Similar for comments to fetch the user's id!
                 return res.status(200).json({
                     data: {
