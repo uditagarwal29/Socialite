@@ -17,7 +17,9 @@ class ToggleLike{
                 url: $(self).attr('href'),
             })
             .done(function(data) {
+                //getting current likesCount which is length of likes array in PostSchema or CommentSchema. This is stored i  attrib data-likes
                 let likesCount = parseInt($(self).attr('data-likes'));
+                //uses deleted attribute from likes_controller to detect if like is already made and if already made decrease like, else increase
                 console.log(likesCount);
                 if (data.data.deleted == true){
                     likesCount -= 1;

@@ -23,8 +23,7 @@ module.exports.toggleLike = async function (req, res) {
             type = 'Comment'
         }
         console.log(req.user)
-        console.log(likeable)
-        //checking if like already exists
+        //checking if like is already made by current loggd in user ( req.user._id)
         let existingLike = await Like.findOne({
             likeable: req.query.id,
             onModel: req.query.type,
@@ -49,19 +48,13 @@ module.exports.toggleLike = async function (req, res) {
             likeable.save();
             // deleted = false;
         }
-
+        // console.log(likeable)
         return res.json(200, {
             message: "Request successful!",
             data: {
                 deleted: deleted
             }
         })
-
-        // return res.json(200 ,  {
-        //     deleted : deleted ,
-        //     message : "req Successful"
-        // })
-        return res.redirect('back');
 
     } catch (error) {
 

@@ -4,7 +4,7 @@
         let newPostForm = $('#new-post-form'); //get the new post form from home.ejs
         newPostForm.submit(function (e) {
             e.preventDefault();
-            $.ajax({ 
+            $.ajax({
                 type: 'post',
                 url: '/posts/create',  //where to submit form
                 data: newPostForm.serialize(), //this converts post data into json format
@@ -15,13 +15,17 @@
                     //passing a tag class to the dletepost method defined below
                     deletePost($('.delete-post-button', newPost)); //newPost has .delete-psot-button class inside it
 
+                    //CHANGE
+                    //from toggle_likes.js , creating new instance of ToggleLike class
+                    new ToggleLike($('.toggle-like-button', newComment));
+                    
                     new Noty({
                         theme: 'relax',
                         text: "Post Created!",
                         type: 'success',
                         layout: 'topRight',
                         timeout: 1500
-                        
+
                     }).show();
 
                 }, error: function (error) {
@@ -91,7 +95,7 @@
                         type: 'success',
                         layout: 'topRight',
                         timeout: 1500
-                        
+
                     }).show();
                 }, error: function (error) {
                     console.log(error.responseText);

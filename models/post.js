@@ -20,6 +20,7 @@ const postSchema = new mongoose.Schema({
     ],
 
     //CHANGE
+    //store all like ids of likes made on a post
     likes:[
         {
             type: mongoose.Schema.Types.ObjectId,

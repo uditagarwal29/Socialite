@@ -25,6 +25,7 @@ module.exports.home = async function (req, res) {
                 }, 
                 options: { sort: { 'createdAt':  -1 } } // sort comments by latest
             })
+            
 
         let users = await User.find({})
         return res.render('home', {

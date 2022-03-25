@@ -15,6 +15,7 @@ const commentSchema = new mongoose.Schema({
     },
     
     //CHANGE 
+    //store all like ids of likes made on a comment
     likes:[
         {
             type: mongoose.Schema.Types.ObjectId,

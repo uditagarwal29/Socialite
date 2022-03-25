@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
  
 const likesSchema = new mongoose.Schema({
     user: {
+        //stores maker of like
         type: mongoose.Schema.ObjectId
     },
     //defined object id of the liked object

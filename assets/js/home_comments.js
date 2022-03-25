@@ -14,8 +14,8 @@ let createComments = function () {
                 deleteComment($(' .delete-comment-button', newComment));
 
                 //CHANGE
+                //from toggle_likes.js , creating new instance of ToggleLike class
                 new ToggleLike($('.toggle-like-button',newComment));
-
 
                 new Noty({
                     theme: 'relax',
