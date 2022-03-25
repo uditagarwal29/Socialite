@@ -17,7 +17,7 @@
 
                     //CHANGE
                     //from toggle_likes.js , creating new instance of ToggleLike class
-                    new ToggleLike($('.toggle-like-button', newComment));
+                    new ToggleLike($('.toggle-like-button', newPost));
                     
                     new Noty({
                         theme: 'relax',
