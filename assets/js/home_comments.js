@@ -13,6 +13,10 @@ let createComments = function () {
                 $('#post-comments-' + data.data.comment.post).prepend(newComment);
                 deleteComment($(' .delete-comment-button', newComment));
 
+                //CHANGE
+                new ToggleLike($('.toggle-like-button',newComment));
+
+
                 new Noty({
                     theme: 'relax',
                     text: "Comment created!",
@@ -42,6 +46,13 @@ let newCommentDom = function (comment) {
             <div class="delete-button">
                     <a class="delete-comment-button" href="/comments/destroy/${comment._id}">x</a>
             </div>
+            <small>
+                            
+                                <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment">
+                                    0 Likes
+                                </a>
+                            
+                            </small>
         </p>
     </li>
    `);

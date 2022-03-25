@@ -1,6 +1,9 @@
 const Post = require('../models/post')
 const Comment = require('../models/comment')
 
+//CHANGE
+const Like = require('../models/like')
+
 module.exports.create = async function (req, res) {
     try {
         let post = await Post.create({
@@ -33,6 +36,12 @@ module.exports.destroy = async function (req, res) {
         let post = await Post.findById(req.params.id)
         //allow post to be deleted only if post maker and user sending delete post request are same 
         if (post.user == req.user.id) {
+
+            //CHANGE
+            //deleting likes of the post and comments of the post
+            await Like.deleteMany({ likeable: post, onModel: 'Post' });
+            await Like.deleteMany({ _id: { $in: post.comments } })
+
             post.remove();
             await Comment.deleteMany({ post: req.params.id });
 
