@@ -10,7 +10,8 @@ module.exports.toggleLike = async function (req, res) {
         //deleted tells if a post is already liked or not
         //if post shows 0 Likes and deleted is false :  Likes increase by  +1
         //if deleted is true(it is true only if likes >0)  --> we remove the like i.e likes-1
-        let type = '';
+        let type = ''
+        console.log(req.query);
 
         // get the type of object on which like is placed
         if (req.query.type == 'Post') {
@@ -22,7 +23,7 @@ module.exports.toggleLike = async function (req, res) {
             likeable = await Comment.findById(req.query.id).populate('likes');
             type = 'Comment'
         }
-        console.log(req.user)
+        // console.log(req.user)
         //checking if like is already made by current loggd in user ( req.user._id)
         let existingLike = await Like.findOne({
             likeable: req.query.id,

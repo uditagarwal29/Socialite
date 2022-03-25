@@ -76,7 +76,6 @@ let deleteComment = function (deleteLink) {
                     timeout: 1500
 
                 }).show();
-                console.log("jiiii");
 
             },
             error: function (error) {
