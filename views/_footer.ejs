@@ -1,3 +1,15 @@
-<footer>
-    Page Footer
+<footer id="layout-footer">
+
+    <div class="foot-links">
+        <a href="/">Home</a>
+        <% if (locals.user){ %>
+            <a href="/users/profile/<%= user.id %>">Profile</a>
+        <% } %>
+    </div>
+
+    <div class="title">
+        <p>
+            &#169; Udit Agarwal
+        </p>
+    </div>
 </footer>

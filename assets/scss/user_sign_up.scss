@@ -1,0 +1,124 @@
+html,
+body {
+  overflow-y: hidden;
+}
+
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../images/background1.jpg");
+
+  #sign-up-page {
+    background-color: white;
+    height: 43rem;
+    width: 33rem;
+    border-radius: 15px;
+    margin: 80px auto;
+    box-shadow: 0 0 20px 6px #090b6f85;
+
+    .top {
+        color: #ffffff;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url("../images/3.jpg");
+      background-blend-mode: lighten;
+      background-color: #e0bef175;
+      overflow: hidden;
+      padding: 10px;
+      border-radius: 15px 15px 0px 0px;
+
+      .wlcm-title {
+        color: white;
+        display: block;
+        font-size: 2em;
+        text-align: center;
+        span {
+          font-weight: 900;
+          font-size: 2.1em;
+          color: white;
+          display: block;
+        }
+      }
+
+      #google-sign-in {
+        height: 5rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+
+        h3 {
+        }
+
+        a {
+          text-decoration: none;
+          background: #3b5998;
+          color: #ffffff;
+          //   margin-top: 10px;
+          padding: 12px 45px;
+          border-radius: 100px;
+          display: inline-block;
+          box-shadow: 0 3px 6px 1px #042d4657;
+
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
+
+    .bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .btm-header {
+        text-align: center;
+        font-family: arial;
+        font-weight: bold;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+
+        input {
+          display: inline-block;
+          margin-top: 0.5rem;
+          width: 18rem;
+          padding: 0.8rem;
+          font-size: 0.7rem;
+          font-family: sans-serif;
+        }
+        input[type="submit"] {
+          margin-top: 20px;
+          background-color: #4834c9;
+          color: white;
+          font-size: 1rem;
+          outline: none;
+          width: 120px;
+          cursor: pointer;
+          border: none;
+          border-radius: 20px;
+          transition: 0.2s ease-in-out;
+          &:hover {
+            background-color: #2e1d9d;
+            box-shadow: 0 3px 6px 1px #042d4657;
+          }
+        }
+      }
+
+      #already-account {
+        a {
+          text-decoration: none;
+          color: #3449eb;
+        }
+      }
+    }
+  }
+}

@@ -1,19 +1,17 @@
-<html>
+<link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="/css/chat_box.css">
+<link rel="stylesheet" href="/css/post.css">
 
-<head>
-    <title>
-        <%= title %>
-    </title>
-</head>
 
-<body>
-    <h1>Codeial / <%= title %>
-    </h1>
+<div id="home-container">
+    <!-- <h1>Socialite / <%= title %>
+    </h1> -->
     <section id="feed-posts">
-        <h4>Posts</h4>
+        <h1 class="feed-title">Your Feed</h1>
         <!-- //making a check, if user is logged in then only show create post option -->
         <% if(locals.user) {%>
             <form action="/posts/create" id="new-post-form" method="POST">
+                <h4>What's on your mind ?</h4>
                 <textarea name="content" cols="30" rows="3" placeholder="Type here..." required></textarea>
                 <input type="submit" value="Post">
             </form>
@@ -24,31 +22,47 @@
 
                             <%- include('_post') -%>
 
-                        <% }%>
+                                <% }%>
                     </ul>
                 </div>
     </section>
+
     <section id="user-friends">
         <h4>Friends</h4>
         <% for(u of all_users) { %>
             <p>
-                <a href="/users/profile/<%= u.id%>"><%= u.name  %></a>
+                <a href="/users/profile/<%= u.id%>">
+                    <%= u.name %>
+                </a>
             </p>
-        <% } %>
+            <% } %>
     </section>
-    
-</body>
+    <!-- <%- include('_chat_box') -%> -->
+
+</div>
+
 <script src="/js/home_posts.js"></script>
 <script src="/js/home_comments.js"></script>
 
 <!-- //CHANGE -->
-<script src="js/toggle_likes.js"></script>
+<script src="/js/toggle_likes.js"></script>
+
 <!-- on each toggle like button add the class togglelike -->
 <script>
-    $('.toggle-like-button').each(function(){
+    $('.toggle-like-button').each(function () {
         // console.log("hii");
         let self = this;
         let toggleLike = new ToggleLike(self);
     });
 </script>
-</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+
+<script src="/js/chat_engine.js"></script>
+<% if(locals.user) {%>
+    <script>
+        //frontend for creating a connection
+        //below object creates an instance of class ChatEngine in chat_engine.js and establishes connection with socket server 
+        new ChatEngine('user-chat-box', '<%= locals.user.email %>')
+    </script>
+    <% } %>

@@ -1,11 +1,23 @@
-<h1> Sign IN</h1>
+<link rel="stylesheet" href="/css/user_sign_in.css">
 
-<form action="/users/create-session" method="POST">
-    <input type="email" name="email" placeholder="Your Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="submit" value="Sign IN">
-</form>
-
-<p>
-    <a href="/users/auth/google"> Google Sign In </a>
-</p>
+<div id="sign-in-page">
+    <div class="top">
+        <h2 class="wlcm-title">Welcome To <span>Socialite </span></h2>
+        <div id="google-sign-in">
+            <h3>Login with Google</h3>
+            <a href="/users/auth/google"><img src="/images/google.png" height="30" width="30"></a>
+        </div>
+    </div>
+    <div class="bottom">
+        <h2 class="btm-header">Sign in</h2>
+        <form action="/users/create-session" method="POST">
+            <input name="email" type="email" placeholder="Your Email-id" required>
+            <input name="password" type="password" placeholder="Password" required>
+            <input type="submit" value="Sign In">
+        </form>
+        <p id="already-account">
+            <span>New to Socialite ?</span>
+            <a href="/users/sign-up">Sign Up</a>
+        <p>
+    </div>
+</div>

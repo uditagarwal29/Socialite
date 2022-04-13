@@ -1,0 +1,26 @@
+#layout-footer {
+  height: 50px;
+  width: 100%;
+  background-color: #272838;
+  position: relative; }
+  #layout-footer a {
+    color: white;
+    text-decoration: none; }
+  #layout-footer .foot-links {
+    display: inline;
+    float: left;
+    font-size: 18px; }
+    #layout-footer .foot-links a {
+      display: inline-block;
+      padding: 13px 10px 13px 10px;
+      color: #efefef; }
+      #layout-footer .foot-links a:hover {
+        background-color: rgba(0, 0, 0, 0.3); }
+  #layout-footer .title {
+    display: inline-block;
+    float: right; }
+    #layout-footer .title p {
+      margin: 5px;
+      font-size: 15px;
+      color: white;
+      padding: 10px 10px 10px 10px; }

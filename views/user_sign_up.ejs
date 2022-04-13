@@ -1,4 +1,4 @@
-<h1> Sign UP</h1>
+<!-- <h1> Sign UP</h1>
 
 <form action="/users/create" method="POST">
     <input type="text" name="name" placeholder="Your Name" required>
@@ -9,4 +9,29 @@
 </form>
 <p>
     <a href="/users/auth/google"> Google Sign Up </a>
-</p>
+</p> -->
+<link rel="stylesheet" href="/css/user_sign_up.css">
+
+<div id="sign-up-page">
+    <div class="top">
+        <h2 class="wlcm-title">Welcome To <span>Socialite </span></h2>
+        <div id="google-sign-in">
+            <h3>Signup with Google</h3>
+            <a href="/users/auth/google"><img src="/images/google.png" height="30" width="30"></a>
+        </div>
+    </div>
+    <div class="bottom">
+        <h2 class="btm-header">Sign up</h2>
+        <form action="/users/create-session" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+            <input type="submit" value="Sign Up">
+        </form>
+        <p id="already-account">
+            <span>Already registered ?</span>
+            <a href="/users/sign-in">Sign In</a>
+        <p>
+    </div>
+</div>

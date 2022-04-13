@@ -5,7 +5,7 @@ module.exports.profile = function (req, res) {
     // console.log(req.cookies.codial)
     User.findById(req.params.id, function (err, user) {
         return res.render('user_profile', {
-            title: 'Codial',
+            title: 'Socialite',
             profile_user: user
         })
     })
@@ -58,7 +58,7 @@ module.exports.signUp = function (req, res) {
     }
 
     return res.render('user_sign_up', {
-        title: "Codial | Sign Up"
+        title: "Socialite | Sign Up"
     })
 }
 
@@ -68,7 +68,7 @@ module.exports.signIn = function (req, res) {
         return res.redirect('/users/profile')
     }
     return res.render('user_sign_in', {
-        title: "Codial | Sign In"
+        title: "Socialite | Sign In"
     })
 }
 

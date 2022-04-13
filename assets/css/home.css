@@ -1,0 +1,74 @@
+#home-container {
+  display: flex;
+  margin: auto;
+  background-color: #ecf8f8; }
+  #home-container #feed-posts {
+    width: 70%;
+    padding: 50px;
+    border: 2px solid green; }
+    #home-container #feed-posts .feed-title {
+      margin-top: 0px;
+      font-size: 25px;
+      text-align: center; }
+    #home-container #feed-posts #new-post-form {
+      background-color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 5px;
+      border: 1.5px solid #ded7d7; }
+      #home-container #feed-posts #new-post-form h4 {
+        margin-top: 0px;
+        font-size: 20px; }
+      #home-container #feed-posts #new-post-form textarea {
+        font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+        width: 100%;
+        border: 1px solid #ccc;
+        background: #fff;
+        margin: 0 0 5px;
+        padding: 10px;
+        height: 100px;
+        max-width: 100%;
+        resize: none; }
+        #home-container #feed-posts #new-post-form textarea:hover {
+          -webkit-transition: border-color 0.3s ease-in-out;
+          -moz-transition: border-color 0.3s ease-in-out;
+          transition: border-color 0.3s ease-in-out;
+          border: 1px solid #aaa; }
+      #home-container #feed-posts #new-post-form input {
+        margin-top: 10px;
+        width: 60px;
+        height: 38px;
+        padding: 10px;
+        text-align: center;
+        background: linear-gradient(-45deg, #3f00b5, #9f69fe, #27c8b7, #3f00b5);
+        background-size: 800% 400%;
+        display: inline-block;
+        border: none;
+        border-radius: 10px;
+        font-size: 17px;
+        font-weight: 700;
+        color: white;
+        transition: all 0.5s ease-in-out;
+        animation: gradient 10s infinite cubic-bezier(0.62, 0.28, 0.23, 0.99) both; }
+        #home-container #feed-posts #new-post-form input:hover {
+          animation: gradient 3s infinite;
+          transform: scale(1.05); }
+        #home-container #feed-posts #new-post-form input:active {
+          animation: gradient 3s infinite;
+          transform: scale(0.8); }
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
+    #home-container #feed-posts #posts-container {
+      border: 2px solid red; }
+  #home-container #user-friends {
+    width: 30%;
+    padding: 10px;
+    border-left: 1px solid lightgrey;
+    height: 100%; }

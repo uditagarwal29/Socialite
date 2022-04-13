@@ -14,6 +14,25 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy')
 const passportJWT = require('./config/passport-jwt-strategy')
 const MongoStore = require('connect-mongo'); //to store session information
+const sassMiddleware = require('node-sass-middleware');
+
+//setting up chat sockets server
+
+//creating a chat server and passed app to it
+const chatServer = require('http').Server(app);
+//passed chatServer to chatSockets function
+const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
+//chatServer is listening to port 5000 where connection was established
+chatServer.listen(5000);
+console.log('Chat server is listening on PORT : 5000');
+
+app.use(sassMiddleware({
+    src: './assets/scss',
+    dest: './assets/css',
+    debug: true,
+    outputStyle: 'extended',
+    prefix: '/css'
+}));
 
 app.use(express.urlencoded());
 app.use(cookieParser());
