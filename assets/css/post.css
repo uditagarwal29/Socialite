@@ -53,6 +53,8 @@
         flex: 0 0 10%;
         width: 15px;
         height: 15px; }
+        .post-div .content .interact .like a {
+          text-decoration: none; }
         .post-div .content .interact .like .like-span {
           display: flex;
           flex-direction: row; }

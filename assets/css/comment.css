@@ -38,6 +38,8 @@
       flex: 0 0 10%;
       width: 15px;
       height: 15px; }
+      .comment-container .likeDiv .like a {
+        text-decoration: none; }
       .comment-container .likeDiv .like .like-span {
         display: flex;
         flex-direction: row; }

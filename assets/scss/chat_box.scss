@@ -1,11 +1,11 @@
 // CHANGE :: add styling for the chat box
 #user-chat-box {
   position: absolute;
-  bottom: 0px;
+  bottom: 20px;
   right: 0px;
   border: 1px solid grey;
   border-radius: 5px 5px 0 0;
-  height: 400px;
+  height: 30px;
   width: 300px;
   background: white;
   box-shadow: 1px 1px 1px 1px lightgrey;
@@ -27,15 +27,19 @@
       margin: 15px;
     }
   }
-  
-  .chat-body {
 
+  .chat-body {
+    // display: none;
+    height: 400px;
+    overflow: auto;
+    margin-bottom: 45px;
     #chat-messages-list {
+      margin: 0;
       list-style: none;
       padding: 10px;
       height: 64%;
       background-color: white;
-      overflow: auto;
+      //   overflow: auto;
 
       .other-message {
         text-align: left;
