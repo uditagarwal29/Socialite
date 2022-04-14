@@ -17,13 +17,13 @@
             </form>
             <% } %>
                 <div id="posts-container">
-                    
-                        <% for(post of posts) { %>
 
-                            <%- include('_post') -%>
+                    <% for(post of posts) { %>
 
-                                <% }%>
-                    
+                        <%- include('_post') -%>
+
+                            <% }%>
+
                 </div>
     </section>
 
@@ -37,32 +37,52 @@
             </p>
             <% } %>
     </section>
+
     <%- include('_chat_box') -%>
 
 </div>
+
+<script>
+    $(function () {
+        var arrow = $('.chat-head img');
+
+        arrow.on('click', function () {
+            var src = arrow.attr('src');
+
+            $('.chat-body').slideToggle('fast');
+            if (src == 'https://maxcdn.icons8.com/windows10/PNG/16/Arrows/angle_down-16.png') {
+                arrow.attr('src', 'https://maxcdn.icons8.com/windows10/PNG/16/Arrows/angle_up-16.png');
+            }
+            else {
+                arrow.attr('src', 'https://maxcdn.icons8.com/windows10/PNG/16/Arrows/angle_down-16.png');
+            }
+        });
+
+    });
+</script>
 
 <script src="/js/home_comments.js"></script>
 
 <!-- //CHANGE -->
 <script src="/js/toggle_likes.js"></script>
 
-<!-- on each toggle like button add the class togglelike -->
+<!-- < !--on each toggle like button add the class togglelike --> 
 
-<script>
-    $('.toggle-like-button').each(function () {
-        // console.log("hii");
-        let self = this;
-        let toggleLike = new ToggleLike(self);
-    });
-</script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
-
-<script src="/js/chat_engine.js"></script>
-<% if(locals.user) {%>
     <script>
-        //frontend for creating a connection
-        //below object creates an instance of class ChatEngine in chat_engine.js and establishes connection with socket server 
-        new ChatEngine('user-chat-box', '<%= locals.user.email %>')
+        $('.toggle-like-button').each(function () {
+            // console.log("hii");
+            let self = this;
+            let toggleLike = new ToggleLike(self);
+        });
     </script>
-    <% } %>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+
+    <script src="/js/chat_engine.js"></script>
+    <% if(locals.user) {%>
+        <script>
+            //frontend for creating a connection
+            //below object creates an instance of class ChatEngine in chat_engine.js and establishes connection with socket server 
+            new ChatEngine('user-chat-box', '<%= locals.user.name %>')
+        </script>
+        <% } %>
