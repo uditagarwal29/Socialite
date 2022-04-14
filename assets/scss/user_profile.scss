@@ -1,3 +1,62 @@
-body{
-    background-color: lightblue;
+.wrapper {
+  background-color: #ecf8f8;
+  min-height: 100vh;
+
+  .header {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+
+    background: linear-gradient(-45deg, #0b4f6c, #458bae, #458bae, #084a66);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    h1 {
+      color: white;
+      font-size: 35px;
+    }
+
+    img {
+      // background-color: green;
+      background-image: url('https://www.cmrad.com/images/no-avatar.png?91eb3221c85873fb856995c8791edd66');
+      background-size: contain;
+      object-fit: cover;
+      background-position: center;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    h3 {
+      color: white;
+      font-size: 30px;
+    }
+
+    p {
+      color: white;
+      font-size: 20px;
+    }
+  }
+
+  .update{
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+  }
 }
