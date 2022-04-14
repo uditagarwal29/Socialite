@@ -17,13 +17,13 @@
             </form>
             <% } %>
                 <div id="posts-container">
-                    <ul>
+                    
                         <% for(post of posts) { %>
 
                             <%- include('_post') -%>
 
                                 <% }%>
-                    </ul>
+                    
                 </div>
     </section>
 
@@ -41,13 +41,27 @@
 
 </div>
 
-<script src="/js/home_posts.js"></script>
 <script src="/js/home_comments.js"></script>
 
 <!-- //CHANGE -->
 <script src="/js/toggle_likes.js"></script>
 
 <!-- on each toggle like button add the class togglelike -->
+<script>
+    var btn = document.getElementsByClassName("collapse");
+
+    btn[0].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    });
+
+</script>
+
 <script>
     $('.toggle-like-button').each(function () {
         // console.log("hii");

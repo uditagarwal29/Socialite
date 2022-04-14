@@ -39,13 +39,14 @@ let newCommentDom = function (comment) {
         <p class="comment-user-info">
             ${comment.user.name} 
         </p>
+        <div class="delete-button">
+            <a class="delete-comment-button" href="/comments/destroy/${comment._id}">x</a>
+        </div>
         <p class="comment-content">
             <div class="content">
                 ${comment.content} 
             </div>
-            <div class="delete-button">
-                    <a class="delete-comment-button" href="/comments/destroy/${comment._id}">x</a>
-            </div>
+            
             <small>
                             
                                 <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment">

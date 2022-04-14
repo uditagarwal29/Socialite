@@ -1,46 +1,78 @@
-<!-- <link rel="stylesheet" href="/css/post.css"> -->
+<link rel="stylesheet" href="/css/post.css">
 
-<li id="post-<%= post._id%>">
-    <p>
-        <!-- if user is signed in and the user signed in is the user who made the post -->
-        <% if(locals.user && locals.user.id==post.user.id) { %>
-            <small>
-                <a class="delete-post-button" href="/posts/destroy/<%= post.id %>">x</a>
-            </small>
-            <% } %>
-                <%= post.content %>
-                    <br>
-                    <small>
-                        <%=post.user.name%>
-                    </small>
-                    <br>
-        <small>
-            <% if(locals.user){ %>
-                <a class="toggle-like-button" data-likes="<%=post.likes.length%>" href="/likes/toggle/?id=<%=post._id%>&type=Post">
-                    <%= post.likes.length %> Likes
-                </a>
-            <% } else { %>
-                 <%= post.likes.length %> Likes
-            <% } %>
-        </small>
-    </p>
-    <div class="post-comments">
-        <!-- this if condition allows to show options such as comments delete post only if user is logged in -->
-        <% if(locals.user) { %>
-            <form action="/comments/create" id="new-comment-form" method="POST">
-                <input type="text" name="content" placeholder="Type here to add comment..." required>
-                <!-- // we need to send the id of the post to which we need to add comment to  -->
-                <input type="hidden" name="post" value="<%= post._id %>">
-                <input type="submit" value="Add Comment">
-            </form>
-            <% } %>
-                <div class="post-comments-list">
+<div class="post-div" id="post-<%= post._id%>">
 
-                    <ul id="post-comments-<%= post._id%>">
-                        <% for(comment of post.comments) {%>
-                            <%- include('_comment')-%>
-                        <% } %>
-                    </ul>
-                </div>
+    <div class="pic">
+        <img class="profile-pic" src="<%= post.user.avatar %>" alt="Not Found"
+            onerror=this.src="../images/noavatar.png">
     </div>
-</li>
+
+    <div class="content">
+        <div class="tophead">
+            <small class="username">
+                <%=post.user.name%>
+            </small>
+            <small class="post-date">
+                <!-- <%=post.createdAt.getDate() %> -->
+                <%= post.createdAt.toDateString().slice(3,10) %>
+            </small>
+
+            <% if(locals.user && locals.user.id==post.user.id) { %>
+                <a class="delete-post-button" href="/posts/destroy/<%= post.id %>"><img src="../images/delete.png"></a>
+            <% } %>
+        </div>
+
+        <div class="text">
+            <%= post.content %>
+        </div>
+
+        <div class="interact">
+            <small class="like">
+                <% if(locals.user){ %>
+                    <a class="toggle-like-button" data-likes="<%=post.likes.length%>"
+                        href="/likes/toggle/?id=<%=post._id%>&type=Post">
+                    <span class="like-span">
+                        <%= post.likes.length %> <img src="../images/like.png">
+                    </span>
+
+                    </a>
+                <% } else { %>
+                    <span class="like-span">
+                        <%= post.likes.length %> <img src="../images/like.png">
+                    </span>
+                <% } %>
+            </small>
+
+            <!-- <a  class="collapse">
+                Comments
+            </a> -->
+
+            
+        </div>
+
+        <div class="post-comments">
+            <!-- this if condition allows to show options such as comments delete post only if user is logged in -->
+            <% if(locals.user) { %>
+                <form action="/comments/create" id="new-comment-form" method="POST">
+                    <input class="field-input" type="text" name="content" placeholder="Type here to add comment..." required>
+                    <!-- // we need to send the id of the post to which we need to add comment to  -->
+                    <input  class="field-input" type="hidden" name="post" value="<%= post._id %>">
+                    <input class="add-cmt-btn" type="submit" value="Add Comment">
+                </form>
+            <% } %>
+            <div class="post-comments-list">
+                <ul id="post-comments-<%= post._id%>">
+                    <% for(comment of post.comments) {%>
+                        <%- include('_comment')-%>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+    <!-- if user is signed in and the user signed in is the user who made the post -->
+

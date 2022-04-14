@@ -1,15 +1,100 @@
 .post-div {
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  background-color: white;
+  border: 1.5px solid #ded7d7;
+  margin-bottom: 20px; }
   .post-div .pic {
-    width: 60px;
-    height: 60px; }
+    width: 70px;
+    height: 70px;
+    padding: 10px; }
     .post-div .pic img {
       background-size: contain;
       object-fit: cover;
       background-position: center;
-      width: 60px;
-      height: 60px;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
-      overflow: hidden;
-      padding: 10px; }
+      overflow: hidden; }
+  .post-div .content {
+    width: 100%; }
+    .post-div .content .tophead {
+      display: flex;
+      flex-direction: row;
+      padding: 15px; }
+      .post-div .content .tophead .username {
+        flex: 1;
+        font-weight: 900;
+        font-size: 18px; }
+      .post-div .content .tophead .post-date {
+        flex: 1;
+        font-size: 13px;
+        padding-top: 4px;
+        color: #828181; }
+      .post-div .content .tophead .delete-post-button {
+        float: right;
+        width: 20px;
+        height: 20px; }
+        .post-div .content .tophead .delete-post-button img {
+          width: 15px;
+          height: 20px; }
+    .post-div .content .text {
+      font-size: 17px;
+      padding-left: 15px; }
+    .post-div .content .interact {
+      padding-left: 15px;
+      margin-top: 15px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap; }
+      .post-div .content .interact .like {
+        flex: 0 0 10%;
+        width: 15px;
+        height: 15px; }
+        .post-div .content .interact .like .like-span {
+          display: flex;
+          flex-direction: row; }
+          .post-div .content .interact .like .like-span img {
+            padding-left: 5px;
+            width: 15px;
+            height: 15px; }
+    .post-div .content .post-comments {
+      padding-left: 15px; }
+      .post-div .content .post-comments #new-comment-form .field-input {
+        font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+        width: 50%;
+        border: 1px solid #ccc;
+        background: #fff;
+        margin: 0 0 5px;
+        padding: 10px;
+        height: 30px;
+        max-width: 100%;
+        resize: none; }
+        .post-div .content .post-comments #new-comment-form .field-input:hover {
+          -webkit-transition: border-color 0.3s ease-in-out;
+          -moz-transition: border-color 0.3s ease-in-out;
+          transition: border-color 0.3s ease-in-out;
+          border: 1px solid #999797; }
+      .post-div .content .post-comments #new-comment-form .add-cmt-btn {
+        margin-left: 10px;
+        height: 30px;
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+        background: transparent;
+        outline: none !important;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        border: 1px solid black;
+        border-radius: 5px;
+        z-index: 1;
+        color: black; }
+        .post-div .content .post-comments #new-comment-form .add-cmt-btn:hover {
+          background-color: black;
+          color: white; }
+      .post-div .content .post-comments .post-comments-list {
+        border: 2px solid red; }
+        .post-div .content .post-comments .post-comments-list ul {
+          border: 2px solid green; }

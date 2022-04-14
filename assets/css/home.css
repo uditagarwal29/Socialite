@@ -65,8 +65,6 @@
     background-position: 100% 50%; }
   100% {
     background-position: 0% 50%; } }
-    #home-container #feed-posts #posts-container {
-      border: 2px solid red; }
   #home-container #user-friends {
     width: 30%;
     padding: 10px;

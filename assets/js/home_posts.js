@@ -11,7 +11,7 @@
                 success: function (data) {
                     // console.log(data.data.post.user.name)
                     let newPost = newPostDom(data.data.post)
-                    $('#posts-container>ul').prepend(newPost)  // prepend adds at starting of array
+                    $('#posts-container').prepend(newPost)  // prepend adds at starting of array
                     //passing a tag class to the dletepost method defined below
                     deletePost($('.delete-post-button', newPost)); //newPost has .delete-psot-button class inside it
 
@@ -37,41 +37,44 @@
 
     //method to create a post in DOM
     let newPostDom = function (post) {
-        return $(`<li id="post-${post._id}">
-        <p>
-                <small>
-                    <a class="delete-post-button" href="/posts/destroy/${post._id}">x</a>
-                </small>
-                
-                    ${post.content}
-                        <br>
-                        <small>
-                            ${post.user.name}
-                        </small>
-                        <br>
-                        <small>
-                <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post">
-                    0 Likes
-                </a>
-            </small>
-        </p>
-        <div class="post-comments">
-            <!-- this if condition allows to show options such as comments delete post only if user is logged in -->
-     
-                <form action="/comments/create" method="POST">
-                    <input type="text" name="content" placeholder="Type here to add comment..." required>
-                    <!-- // we need to send the id of the post to which we need to add comment to  -->
-                    <input type="hidden" name="post" value="${post._id}">
-                    <input type="submit" value="Add Comment">
-                </form>
+        return $(`
 
-                    <div class="post-comments-list">
-                        <ul id="post-comments-${post._id}">
-                            
-                        </ul>
-                    </div>
+        <div class="post-div" id="post-<%= post._id%>">
+
+            <div class="pic">
+                <img class="profile-pic" src="${post.user.avatar}" alt="Not Found"
+                    onerror=this.src="../images/noavatar.png">
+            </div>
+
+        <div class="content">
+            <div class="tophead">
+                <small class="username">
+                    ${post.user.name}${post.user.avatar}
+                </small>
+                <small class="post-date">
+                    ${post.createdAt.slice(3,10)}
+                </small>
+
+                <a class="delete-post-button" href="/posts/destroy/${post.id}"><img src="../images/delete.png"></a>
+         
+            </div>
+
+            <div class="text">
+                ${post.content}
+            </div>
+
+            <div class="interact">
+                <small class="like">
+                    <a class="toggle-like-button" data-likes="${post.likes.length}" href="/likes/toggle/?id=${post._id}>&type=Post">
+                        <span class="like-span">
+                            ${post.likes.length} <img src="../images/like.png">
+                        </span>
+                    </a>
+                </small>
+            </div>
+
         </div>
-    </li>
+    </div>
         
         `)
     }
