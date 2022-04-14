@@ -21,13 +21,14 @@
     .post-div .content .tophead {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       padding: 15px; }
       .post-div .content .tophead .username {
-        flex: 1;
+        flex: 1 1 100%;
         font-weight: 900;
         font-size: 18px; }
       .post-div .content .tophead .post-date {
-        flex: 1;
+        flex: 1 1 200px;
         font-size: 13px;
         padding-top: 4px;
         color: #828181; }
@@ -95,6 +96,9 @@
           background-color: black;
           color: white; }
       .post-div .content .post-comments .post-comments-list {
-        border: 2px solid red; }
+        margin-top: -10px;
+        padding: 0; }
         .post-div .content .post-comments .post-comments-list ul {
-          border: 2px solid green; }
+          padding: 0;
+          margin-top: -10px;
+          list-style-type: none; }

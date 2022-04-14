@@ -10,33 +10,49 @@
                     <%=comment.user.name %>
     </p>
 </li> -->
-
+<link rel="stylesheet" href="/css/comment.css">
 
 <li id="comment-<%= comment._id %>" class="comment-container">
-    
-    <p class="comment-user-info">
-        <%= comment.user.name %>
-    </p>
-    <p class="comment-content">
-    
-    <div class="delete-button">
-        <% if(locals.user && ((locals.user.id==comment.user.id )||( locals.user.id==post.user.id))){%>
-            <a class="delete-comment-button" href="/comments/destroy/<%= comment._id %>">x</a>
+    <!-- <div class="pic">
+        <img id="profile-pic" src="<%= comment.user.avatar %>" alt="Not Found"
+            onerror=this.src="../images/noavatar.png">
+    </div> -->
+    <div class="topheader">
+        <div class="comment-user-info">
+            <%= comment.user.name %>
+        </div>
+        <!-- <p class="comment-content"> -->
+
+        <div class="delete-button">
+            <% if(locals.user && ((locals.user.id==comment.user.id )||( locals.user.id==post.user.id))){%>
+                <a class="delete-comment-button" href="/comments/destroy/<%= comment._id %>"><img src="../images/delete.png"></a>
 
             <% } %>
+        </div>
     </div>
 
-    <div class="content">
+
+    <div class="comment-content">
         <%= comment.content %>
     </div>
-    <small>
-        <% if(locals.user){ %>
-            <a class="toggle-like-button" data-likes="<%=comment.likes.length%>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment">
-                <%= comment.likes.length %> Likes
-            </a>
-        <% } else { %>
-            <%= comment.likes.length %> Likes
-        <% } %>
-    </small>
-    </p>
+
+    <div class="likeDiv">
+        <small class="like">
+            <% if(locals.user){ %>
+                <a class="toggle-like-button" data-likes="<%=comment.likes.length%>"
+                    href="/likes/toggle/?id=<%=comment._id%>&type=Comment">
+                    <span class="like-span">
+                        <%= comment.likes.length %> <img src="../images/like.png">
+                    </span>
+
+                </a>
+                <% } else { %>
+                    <span class="like-span">
+                        <%= comment.likes.length %> <img src="../images/like.png">
+                    </span>
+                <% } %>
+        </small>
+    </div>
+
+    
 </li>

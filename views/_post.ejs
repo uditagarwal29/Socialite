@@ -12,6 +12,7 @@
             <small class="username">
                 <%=post.user.name%>
             </small>
+            <br>
             <small class="post-date">
                 <!-- <%=post.createdAt.getDate() %> -->
                 <%= post.createdAt.toDateString().slice(3,10) %>

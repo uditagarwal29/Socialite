@@ -28,7 +28,7 @@
     </section>
 
     <section id="user-friends">
-        <h4>Friends</h4>
+        <h4>Users</h4>
         <% for(u of all_users) { %>
             <p>
                 <a href="/users/profile/<%= u.id%>">
@@ -37,7 +37,7 @@
             </p>
             <% } %>
     </section>
-    <!-- <%- include('_chat_box') -%> -->
+    <%- include('_chat_box') -%>
 
 </div>
 
@@ -47,20 +47,6 @@
 <script src="/js/toggle_likes.js"></script>
 
 <!-- on each toggle like button add the class togglelike -->
-<script>
-    var btn = document.getElementsByClassName("collapse");
-
-    btn[0].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-            content.style.display = "none";
-        } else {
-            content.style.display = "block";
-        }
-    });
-
-</script>
 
 <script>
     $('.toggle-like-button').each(function () {

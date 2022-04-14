@@ -1,0 +1,67 @@
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    margin-left: 0;
+    padding: 10px 0 10px 10px;
+    border: 1px solid rgb(222, 215, 215); ;
+    background-color: #ecf8f8;
+
+
+  .topheader {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap : wrap;
+    .comment-user-info {
+        flex: 1 1 80%;
+        font-weight: 900;
+        font-size: 15px;
+    }
+
+    .delete-button {
+        margin-right: 0;
+        justify-content: flex-end;
+        flex: 1 1 5px;
+        .delete-comment-button {
+            float: right;
+            width: 15px;
+            height: 15px;
+            img {
+              width: 12px;
+              height: 15px;
+            }
+          }
+    }
+
+    
+
+    
+  }
+
+  .comment-content {
+      font-size: 15px;
+      padding-top: 7px;
+  }
+
+  .likeDiv {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .like {
+      flex: 0 0 10%;
+      width: 15px;
+      height: 15px;
+      .like-span {
+        display: flex;
+        flex-direction: row;
+        img {
+          padding-left: 5px;
+          width: 15px;
+          height: 15px;
+        }
+      }
+    }
+  }
+}

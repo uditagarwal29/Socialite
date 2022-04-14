@@ -26,15 +26,17 @@
     .tophead {
       display: flex;
       flex-direction: row;
+      flex-wrap:wrap;
       //   justify-content: center;
       padding: 15px;
       .username {
-        flex: 1;
+        flex: 1 1 100%;
         font-weight: 900;
         font-size: 18px;
+
       }
       .post-date {
-        flex: 1;
+        flex: 1 1 200px;
         font-size: 13px;
         padding-top: 4px;
         color: rgb(130, 129, 129);
@@ -125,9 +127,15 @@
       }
 
       .post-comments-list {
-        border: 2px solid red;
+        margin-top: -10px ;
+        padding: 0;
+        // border: 2px solid red;
         ul{
-          border: 2px solid green;
+          padding: 0;
+          margin-top: -10px;
+          // margin: -5px 0 0 0 ;
+          // border: 2px solid green;
+          list-style-type:none;
         }
       }
     }

@@ -12,10 +12,9 @@ let createComments = function () {
                 //  console.log(data.data.comment)
                 $('#post-comments-' + data.data.comment.post).prepend(newComment);
                 deleteComment($(' .delete-comment-button', newComment));
-
                 //CHANGE
                 //from toggle_likes.js , creating new instance of ToggleLike class
-                new ToggleLike($('.toggle-like-button',newComment));
+                new ToggleLike($('.toggle-like-button', newComment));
 
                 new Noty({
                     theme: 'relax',
@@ -35,27 +34,36 @@ let createComments = function () {
 let newCommentDom = function (comment) {
     //console.log(comment.content);
     return $(`  
-    <li id="comment-${comment._id}">
-        <p class="comment-user-info">
-            ${comment.user.name} 
-        </p>
-        <div class="delete-button">
-            <a class="delete-comment-button" href="/comments/destroy/${comment._id}">x</a>
+    <li id="comment-${comment._id}" class="comment-container">
+    
+    <div class="topheader">
+        <div class="comment-user-info">
+            ${comment.user.name}
         </div>
-        <p class="comment-content">
-            <div class="content">
-                ${comment.content} 
-            </div>
-            
-            <small>
-                            
-                                <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment">
-                                    0 Likes
-                                </a>
-                            
-                            </small>
-        </p>
-    </li>
+
+        <div class="delete-button">
+                <a class="delete-comment-button" href="/comments/destroy/${comment._id}"><img src="../images/delete.png"></a>
+        </div>
+    </div>
+
+
+    <div class="comment-content">
+        ${comment.content}
+    </div>
+
+    <div class="likeDiv">
+        <small class="like">
+                <a class="toggle-like-button" data-likes="0"
+                    href="/likes/toggle/?id=${comment._id}&type=Comment">
+                    <span class="like-span">
+                        ${comment.likes.length} <img src="../images/like.png">
+                    </span>
+
+                </a>
+                
+        </small>
+    </div>
+
    `);
 }
 
