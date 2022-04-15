@@ -13,11 +13,11 @@ module.exports.createSession = async function (req, res) {
                 message: "Invalid username/password"
             });
         }
-        // if user found create JWT token using encrypting key : "codeial"
+        // if user found create JWT token using encrypting key : "socialite"
         return res.json(200, {
             message: "Sign in successfull",
             data: {
-                token: jwt.sign(user.toJSON(), 'codeial', { expiresIn: '100000' })
+                token: jwt.sign(user.toJSON(), 'socialite', { expiresIn: '100000' })
             }
         })
 

@@ -7,7 +7,7 @@ const User = require('../models/user'); // since we need user for authentication
 //key to encrypt JWT 
 let opts = {
     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-    secretOrKey: 'codeial'
+    secretOrKey: 'socialite'
 }
 
 passport.use(new JWTstrategy(opts, function (jwtPayLoad, done) {

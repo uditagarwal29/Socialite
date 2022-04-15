@@ -24,7 +24,7 @@ class ChatEngine {
             //sending an event/req to join the room
             self.socket.emit('join_room', {
                 user_email: self.userEmail,
-                chatroom: 'codeial'
+                chatroom: 'socialite'
             });
 
             self.socket.on('user_joined', function (data) {
@@ -39,7 +39,7 @@ class ChatEngine {
                 self.socket.emit('send_message', {
                     message: msg,
                     user_email: self.userEmail,
-                    chatroom: 'codeial'
+                    chatroom: 'socialite'
                 });
             }
         });

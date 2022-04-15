@@ -51,7 +51,7 @@ app.set('views', './views');
 
 //mongo store is used to store the session cookie ib the db 
 app.use(session({
-    name: 'codial',
+    name: 'socialite',
     //TODO change the secret before deployment
     secret: 'random', //key to encrypt session data
     saveUninitialized: false,  // if the user has not logged in and session is not created we dont want to initialize cookie with extra data
@@ -63,7 +63,7 @@ app.use(session({
     //everytime we refresh our server all users are logged out and session cookie resets
     //so we store our session cookie in a persistent storage, i.e mongoDB
     store: MongoStore.create({
-        mongoUrl: 'mongodb://localhost:27017/codeial_development'
+        mongoUrl: 'mongodb://localhost:27017/socialite'
     }, function (err) {
         console.log(err || 'connect-mongodb-setup ok')
     })

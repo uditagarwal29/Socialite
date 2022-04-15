@@ -2,7 +2,7 @@ const User = require('../models/user')
 const fs = require('fs') //file system module
 const path = require('path')
 module.exports.profile = function (req, res) {
-    // console.log(req.cookies.codial)
+    // console.log(req.cookies.socialite)
     User.findById(req.params.id, function (err, user) {
         return res.render('user_profile', {
             title: 'Socialite',
