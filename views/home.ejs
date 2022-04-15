@@ -1,0 +1,90 @@
+<link type="text/css" rel="stylesheet" href="/css/home.css">
+<link type="text/css" rel="stylesheet" href="/css/chat_box.css">
+<link type="text/css" rel="stylesheet" href="/css/post.css">
+
+
+<div id="home-container">
+    <!-- <h1>Socialite / <%= title %>
+    </h1> -->
+    <section id="feed-posts">
+        <h1 class="feed-title">Your Feed</h1>
+        <!-- //making a check, if user is logged in then only show create post option -->
+        <% if(locals.user) {%>
+            <form action="/posts/create" id="new-post-form" method="POST">
+                <h4>What's on your mind ?</h4>
+                <textarea name="content" cols="30" rows="3" placeholder="Type here..." required></textarea>
+                <input type="submit" value="Post">
+            </form>
+            <% } %>
+                <div id="posts-container">
+
+                    <% for(post of posts) { %>
+
+                        <%- include('_post') -%>
+
+                            <% }%>
+
+                </div>
+    </section>
+
+    <section id="user-friends">
+        <h4>Users</h4>
+        <% for(u of all_users) { %>
+            <p>
+                <a href="/users/profile/<%= u.id%>">
+                    <%= u.name %>
+                </a>
+            </p>
+            <% } %>
+    </section>
+
+    <%- include('_chat_box') -%>
+
+</div>
+
+<script>
+    $(function () {
+        var arrow = $('.chat-head img');
+
+        arrow.on('click', function () {
+            var src = arrow.attr('src');
+            // document.getElementsByClassName("chat-body").style.display = "block";
+
+            $('.chat-body').slideToggle('fast');
+            if (src == 'https://maxcdn.icons8.com/windows10/PNG/16/Arrows/angle_down-16.png') {
+                arrow.attr('src', 'https://maxcdn.icons8.com/windows10/PNG/16/Arrows/angle_up-16.png');
+            }
+            else {
+                arrow.attr('src', 'https://maxcdn.icons8.com/windows10/PNG/16/Arrows/angle_down-16.png');
+            }
+        });
+
+
+    });
+</script>
+
+<script src="/js/home_comments.js"></script>
+
+<!-- //CHANGE -->
+<script src="/js/toggle_likes.js"></script>
+
+<!-- < !--on each toggle like button add the class togglelike -->
+
+<script>
+    $('.toggle-like-button').each(function () {
+        // console.log("hii");
+        let self = this;
+        let toggleLike = new ToggleLike(self);
+    });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+
+<script src="/js/chat_engine.js"></script>
+<% if(locals.user) {%>
+    <script>
+        //frontend for creating a connection
+        //below object creates an instance of class ChatEngine in chat_engine.js and establishes connection with socket server 
+        new ChatEngine('user-chat-box', '<%= locals.user.name %>')
+    </script>
+    <% } %>

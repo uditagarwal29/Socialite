@@ -1,0 +1,29 @@
+#layout-header {
+  margin: 0px;
+  font-family: "segoe ui"; }
+  #layout-header nav {
+    height: 50px;
+    width: 100%;
+    background-color: #0B4F6C;
+    position: relative; }
+    #layout-header nav .nav-header {
+      display: inline; }
+      #layout-header nav .nav-header .mini-logo {
+        float: left; }
+        #layout-header nav .nav-header .mini-logo a {
+          display: inline-block;
+          font-size: 22px;
+          color: #fff;
+          padding: 10px 10px 10px 10px; }
+    #layout-header nav .nav-links {
+      display: inline;
+      float: right;
+      font-size: 18px; }
+      #layout-header nav .nav-links a {
+        display: inline-block;
+        padding: 13px 10px 13px 10px;
+        color: #efefef; }
+        #layout-header nav .nav-links a:hover {
+          background-color: rgba(0, 0, 0, 0.3); }
+    #layout-header nav a {
+      text-decoration: none; }

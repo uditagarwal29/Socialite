@@ -1,0 +1,20 @@
+<header id="layout-header">
+    <nav>
+        <div class="nav-header">
+            <div class="mini-logo">
+                <a href='/'>Socialite</a>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <% if (locals.user){ %>
+                <a href="/users/profile/<%= user.id %>"><%= user.name %></a>
+                <a href="/users/sign-out">Sign Out</a>
+            <% }else{ %>
+                <a href="/users/sign-in">Sign In</a>
+                <a href="/users/sign-up">Sign Up</a>
+            <% } %>
+        </div>
+    </nav>
+
+</header>
