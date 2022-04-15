@@ -2,24 +2,3 @@ google oauth
 
 CLIENT ID : 1053588864915-d7lecvivebi5rba6cqihm3neic5on3fv.apps.googleusercontent.com
 client secret : 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
-
-
-<div class="post-comments">
-                <!-- this if condition allows to show options such as comments delete post only if user is logged in -->
-                <% if(locals.user) { %>
-                    <form action="/comments/create" id="new-comment-form" method="POST">
-                        <input type="text" name="content" placeholder="Type here to add comment..." required>
-                        <!-- // we need to send the id of the post to which we need to add comment to  -->
-                        <input type="hidden" name="post" value="<%= post._id %>">
-                        <input type="submit" value="Add Comment">
-                    </form>
-                    <% } %>
-                        <div class="post-comments-list">
-
-                            <ul id="post-comments-<%= post._id%>">
-                                <% for(comment of post.comments) {%>
-                                    <%- include('_comment')-%>
-                                        <% } %>
-                            </ul>
-                        </div>
-            </div>
