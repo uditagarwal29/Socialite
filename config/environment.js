@@ -15,12 +15,12 @@ const development = {
         port: 587,
         secure: false,
         auth: {
-            user: 'dummyacc1x1x',
-            pass: 'mydummyaccount'
+            user: 'enter-your-gmail-id',
+            pass: 'enter-your-password'
         }
     },
-    google_client_id: "1053588864915-d7lecvivebi5rba6cqihm3neic5on3fv.apps.googleusercontent.com",
-    google_client_secret: "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",
+    google_client_id: "enter-your-clientid",
+    google_client_secret: "enter-your-clientsecret",
     google_callback_URL: "http://localhost:8000/users/auth/google/callback",
     jwt_secret: 'socialite',
 
@@ -38,11 +38,11 @@ const production = {
         secure: false,
         auth: {
             user: 'dummyacc1x1x',
-            pass: 'mydummyaccount'
+            pass: 'enter-your-password'
         }
     },
-    google_client_id: "1053588864915-d7lecvivebi5rba6cqihm3neic5on3fv.apps.googleusercontent.com",
-    google_client_secret: "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",
+    google_client_id: "enter-your-clientid",
+    google_client_secret: "enter-your-clientsecret",
     google_callback_URL: "http://localhost:8000/users/auth/google/callback",
     jwt_secret: 'socialite',
 }
