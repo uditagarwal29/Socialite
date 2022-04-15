@@ -27,7 +27,7 @@
     height: 400px;
     width: inherit;
     overflow: auto;
-    margin-bottom: -90px; }
+    margin-bottom: 45px; }
     .chat-box .chat-body #chat-messages-list {
       margin: 0;
       list-style: none;
@@ -59,14 +59,16 @@
         .chat-box .chat-body #chat-messages-list .self-message sub {
           display: none; }
     .chat-box .chat-body #chat-message-input-container {
+      position: fixed;
+      bottom: -40px;
       height: 80px;
-      width: 100%;
+      width: inherit;
       display: flex;
-      flex-direction: row;
-      margin-bottom: 0; }
+      flex-direction: row; }
       .chat-box .chat-body #chat-message-input-container #chat-message-input {
         height: 50%;
-        width: 70%; }
+        width: 70%;
+        box-sizing: border-box; }
       .chat-box .chat-body #chat-message-input-container #send-message {
         height: 50%;
         width: 30%;

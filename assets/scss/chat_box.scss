@@ -9,13 +9,12 @@
   border: 1px solid grey;
   box-shadow: 1px 1px 1px 1px lightgrey;
 
-
   .chat-head {
     width: inherit;
     height: 30px;
     background: #2c3e50;
     border-radius: 5px 5px 0 0;
-	padding: 0px 1px 25px 0;
+    padding: 0px 1px 25px 0;
 
     h2 {
       color: white;
@@ -35,7 +34,8 @@
     height: 400px;
     width: inherit;
     overflow: auto;
-    margin-bottom: -90px;
+    // margin-bottom: -90px;
+    margin-bottom: 45px;
 
     #chat-messages-list {
       margin: 0;
@@ -78,35 +78,32 @@
       }
     }
 
-	#chat-message-input-container {
-		height: 80px;
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		margin-bottom: 0;
-  
-		#chat-message-input {
-		  height: 50%;
-		  width: 70%;
-		}
-  
-		#send-message {
-		  height: 50%;
-		  width: 30%;
-		  font-size: 25px;
-		  color: white;
-		  border: none;
-		  background: #58d258;
-		}
-	  }
+    #chat-message-input-container {
+      position: fixed;
+      bottom: -40px;
+      height: 80px;
+      width: inherit;
+      // height: 80px;
+      // width: 100%;
+      display: flex;
+      flex-direction: row;
 
+      #chat-message-input {
+        height: 50%;
+        width: 70%;
+        box-sizing: border-box;
+      }
+
+      #send-message {
+        height: 50%;
+        width: 30%;
+        font-size: 25px;
+        color: white;
+        border: none;
+        background: #58d258;
+      }
+    }
   }
 }
 
 // CHANGE :: add styling for the chat box
-#user-chat-box {
-  
-
- 
-
-}
