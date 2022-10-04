@@ -1,12 +1,32 @@
 const User = require('../models/user')
+const Friendships = require("../models/friendship")
 const fs = require('fs') //file system module
 const path = require('path')
-module.exports.profile = function (req, res) {
+module.exports.profile = async function (req, res) {
     // console.log(req.cookies.socialite)
+    let friendID = req.params.id
+    let userID = req.user.id
+    //check if friendship with the user whose profile is opened exists or not
+    let friendship1 = await Friendships.findOne({
+        user_id: userID,
+        friendID: friendID
+    })
+
+    let friendship2 = await Friendships.findOne({
+        user_id: friendID,
+        friendID: userID
+    })
+
+    let exists = false;
+    if(friendship1 || friendship2){
+        exists = true
+    }
+
     User.findById(req.params.id, function (err, user) {
         return res.render('user_profile', {
             title: 'Socialite',
-            profile_user: user
+            profile_user: user,
+            friendship_status: exists
         })
     })
 }
@@ -111,7 +131,14 @@ module.exports.createSession = function (req, res) {
 }
 
 module.exports.destroySession = function (req, res) {
-    req.logout();
-    req.flash('success', 'Logged out!')
-    return res.redirect('/');
+    req.logout(function (err) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        req.flash('success', 'Logged out!')
+        res.redirect('/');
+    });
+
+    // return res.redirect('/');
 }

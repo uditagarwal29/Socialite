@@ -12,7 +12,7 @@ let createComments = function () {
                 //  console.log(data.data.comment)
                 $('#post-comments-' + data.data.comment.post).prepend(newComment);
                 deleteComment($('.delete-comment-button', newComment));
-                //CHANGE
+    
                 //from toggle_likes.js , creating new instance of ToggleLike class
                 new ToggleLike($('.toggle-like-button', newComment));
 

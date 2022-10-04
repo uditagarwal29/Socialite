@@ -59,6 +59,8 @@ class ChatEngine {
                 'html': data.message
             }));
 
+            newMessage.append($('<br>'));
+
             newMessage.append($('<sub>', {
                 'html': data.user_email
             }));

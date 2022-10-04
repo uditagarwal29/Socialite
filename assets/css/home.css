@@ -34,6 +34,8 @@
           -moz-transition: border-color 0.3s ease-in-out;
           transition: border-color 0.3s ease-in-out;
           border: 1px solid #aaa; }
+      #home-container #feed-posts #new-post-form input[type="submit"] {
+        font-family: "Maven Pro", sans-serif; }
       #home-container #feed-posts #new-post-form input {
         margin-top: 10px;
         width: 60px;

@@ -22,15 +22,29 @@ module.exports.home = async function (req, res) {
                 //further populating comments path to get user who made the comment
                 populate: {
                     path: 'user'
-                }, 
-                options: { sort: { 'createdAt':  -1 } } // sort comments by latest
+                },
+                options: { sort: { 'createdAt': -1 } } // sort comments by latest
             })
-            
+        
+        let friends;
+        if (req.user) {
+            friends = await User.findById(req.user._id)
+                .populate({
+                    path: 'friends',
+                    populate: {
+                        path: 'friend_id'
+                    }
+                })
+            friends = friends.friends
+        }
+
+        // console.log(friends.friends[0].friend_id._id)
 
         let users = await User.find({})
         return res.render('home', {
             title: "Socialite | Home",
             posts: posts,
+            all_friends: friends,
             all_users: users
         });
 

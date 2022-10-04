@@ -1,0 +1,80 @@
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../images/background1.jpg"); }
+  body #email-verified-page {
+    background-color: white;
+    height: 38rem;
+    width: 33rem;
+    border-radius: 15px;
+    margin: 80px auto;
+    box-shadow: 0 0 30px 6px #282bb485; }
+    body #email-verified-page .top {
+      color: #ffffff;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url("../images/3.jpg");
+      background-blend-mode: lighten;
+      background-color: #e0bef175;
+      overflow: hidden;
+      padding: 10px;
+      border-radius: 15px 15px 0px 0px; }
+      body #email-verified-page .top .wlcm-title {
+        color: white;
+        display: block;
+        font-size: 2em;
+        text-align: center; }
+        body #email-verified-page .top .wlcm-title span {
+          font-weight: 900;
+          font-size: 2.1em;
+          color: white;
+          display: block; }
+      body #email-verified-page .top h3 {
+        color: white;
+        display: block;
+        font-size: 1.8em;
+        text-align: center; }
+    body #email-verified-page .bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      body #email-verified-page .bottom .btm-header {
+        text-align: center;
+        font-family: arial;
+        font-size: 1.3em;
+        font-weight: bold;
+        margin-top: 70px; }
+      body #email-verified-page .bottom h3 {
+        display: block;
+        text-align: center; }
+      body #email-verified-page .bottom form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white; }
+        body #email-verified-page .bottom form input {
+          display: inline-block;
+          margin-top: 0.5rem;
+          width: 18rem;
+          padding: 0.8rem;
+          font-size: 0.7rem;
+          font-family: sans-serif; }
+        body #email-verified-page .bottom form input[type="submit"] {
+          margin-top: 20px;
+          background-color: #4834c9;
+          color: white;
+          font-size: 1rem;
+          outline: none;
+          width: 120px;
+          cursor: pointer;
+          border: none;
+          border-radius: 20px;
+          transition: 0.2s ease-in-out; }
+          body #email-verified-page .bottom form input[type="submit"]:hover {
+            background-color: #2e1d9d;
+            box-shadow: 0 3px 6px 1px #042d4657; }
+      body #email-verified-page .bottom #already-account {
+        margin-top: 110px; }
+        body #email-verified-page .bottom #already-account a {
+          text-decoration: none;
+          color: #3449eb; }

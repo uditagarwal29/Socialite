@@ -52,6 +52,10 @@
         }
       }
 
+      input[type="submit"] {
+        font-family: "Maven Pro", sans-serif;
+      }
+
       input {
         margin-top: 10px;
         width: 60px;
@@ -118,7 +122,7 @@
         &:visited {
           color: inherit;
         }
-        &:hover{
+        &:hover {
           color: rgb(47, 179, 232);
         }
       }

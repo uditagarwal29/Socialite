@@ -9,9 +9,7 @@
 
     <div class="content">
         <div class="tophead">
-            <small class="username">
-                <%=post.user.name%>
-            </small>
+            <a class="username" style="text-decoration: none; " href="/users/profile/<%= post.user.id%>"><%=post.user.name%></a>
             <br>
             <small class="post-date">
                 <!-- <%=post.createdAt.getDate() %> -->

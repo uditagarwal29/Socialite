@@ -9,6 +9,7 @@
     height: 70px;
     padding: 10px; }
     .post-div .pic img {
+      background-image: url("https://www.cmrad.com/images/no-avatar.png?91eb3221c85873fb856995c8791edd66");
       background-size: contain;
       object-fit: cover;
       background-position: center;
@@ -26,7 +27,15 @@
       .post-div .content .tophead .username {
         flex: 1 1 100%;
         font-weight: 900;
-        font-size: 18px; }
+        font-size: 18px;
+        font-color: black;
+        outline: none; }
+      .post-div .content .tophead a,
+      .post-div .content .tophead a:hover,
+      .post-div .content .tophead a:focus,
+      .post-div .content .tophead a:active {
+        text-decoration: none;
+        color: inherit; }
       .post-div .content .tophead .post-date {
         flex: 1 1 200px;
         font-size: 13px;

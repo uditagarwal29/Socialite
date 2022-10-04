@@ -22,7 +22,8 @@
       cursor: pointer;
       float: right;
       width: 25px;
-      margin: 15px; }
+      margin-top: 19px;
+      margin-right: 19px; }
   .chat-box .chat-body {
     height: 400px;
     width: inherit;
@@ -46,7 +47,7 @@
         .chat-box .chat-body #chat-messages-list .other-message sub {
           color: black;
           font-size: 15px;
-          margin-left: 8px; }
+          margin-left: 1px; }
       .chat-box .chat-body #chat-messages-list .self-message {
         text-align: right;
         padding: 5px; }

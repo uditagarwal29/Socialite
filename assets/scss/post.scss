@@ -4,13 +4,14 @@
   background-color: white;
   border: 1.5px solid rgb(222, 215, 215);
   margin-bottom: 20px;
+  
 
   .pic {
     width: 70px;
     height: 70px;
     padding: 10px;
     img {
-      // background-image:url('../images/noavatar.png');
+      background-image: url("https://www.cmrad.com/images/no-avatar.png?91eb3221c85873fb856995c8791edd66");
       background-size: contain;
       object-fit: cover;
       background-position: center;
@@ -26,14 +27,22 @@
     .tophead {
       display: flex;
       flex-direction: row;
-      flex-wrap:wrap;
+      flex-wrap: wrap;
       //   justify-content: center;
       padding: 15px;
       .username {
         flex: 1 1 100%;
         font-weight: 900;
         font-size: 18px;
-
+        font-color: black;
+        outline: none;
+      }
+      a,
+      a:hover,
+      a:focus,
+      a:active {
+        text-decoration: none;
+        color: inherit;
       }
       .post-date {
         flex: 1 1 200px;
@@ -69,7 +78,7 @@
         flex: 0 0 10%;
         width: 15px;
         height: 15px;
-        a{
+        a {
           text-decoration: none;
         }
         .like-span {
@@ -122,7 +131,7 @@
           z-index: 1;
           color: black;
 
-          &:hover{
+          &:hover {
             background-color: black;
             color: white;
           }
@@ -130,15 +139,15 @@
       }
 
       .post-comments-list {
-        margin-top: -10px ;
+        margin-top: -10px;
         padding: 0;
         // border: 2px solid red;
-        ul{
+        ul {
           padding: 0;
           margin-top: -10px;
           // margin: -5px 0 0 0 ;
           // border: 2px solid green;
-          list-style-type:none;
+          list-style-type: none;
         }
       }
     }

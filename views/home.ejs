@@ -28,14 +28,27 @@
     </section>
 
     <section id="user-friends">
+        <%if(locals.user) {%>
+            <h4>Friends</h4>
+            <% for(u of all_friends) { %>
+                <p>
+                    <a href="/users/profile/<%= u.friend_id._id%>">
+                        <%= u.friend_id.name %>
+                    </a>
+                </p>
+            <% } %>
+                    <hr>
+        <% } %>
+
+
         <h4>Users</h4>
         <% for(u of all_users) { %>
             <p>
-                <a href="/users/profile/<%= u.id%>">
-                    <%= u.name %>
-                </a>
+            <a href="/users/profile/<%= u.id%>">
+                <%= u.name %>
+            </a>
             </p>
-            <% } %>
+        <% } %>
     </section>
 
     <%- include('_chat_box') -%>
@@ -51,11 +64,11 @@
             // document.getElementsByClassName("chat-body").style.display = "block";
 
             $('.chat-body').slideToggle('fast');
-            if (src == 'https://maxcdn.icons8.com/windows10/PNG/16/Arrows/angle_down-16.png') {
-                arrow.attr('src', 'https://maxcdn.icons8.com/windows10/PNG/16/Arrows/angle_up-16.png');
+            if (src == 'https://drive.google.com/uc?export=view&id=1pwpFXU6qgyubUt52U2yFNZk9SMORn-3F') {
+                arrow.attr('src', 'https://drive.google.com/uc?export=view&id=1n1iR_ZMVxQqfnduSTjwXoonClbV5k7Cv');
             }
             else {
-                arrow.attr('src', 'https://maxcdn.icons8.com/windows10/PNG/16/Arrows/angle_down-16.png');
+                arrow.attr('src', 'https://drive.google.com/uc?export=view&id=1pwpFXU6qgyubUt52U2yFNZk9SMORn-3F');
             }
         });
 

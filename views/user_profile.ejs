@@ -16,13 +16,31 @@
             <p><strong>Email :</strong>
                 <%= profile_user.email %>
             </p>
+            <% if(user.id!=profile_user.id) {%>
+                <% if(!friendship_status) {%>
+
+                    <a href="/friends/add-friend/?id=<%= profile_user.id %>">
+                        <button class="add-frnd-btn bn22">
+                            Add Friend
+                        </button>
+                    </a>
+
+                <% } else { %>
+                        <a href="/friends/add-friend/?id=<%= profile_user.id %>">
+                            <button class="remove-frnd-btn bn22">
+                                Remove Friend
+                            </button>
+                        </a>
+                    <% } %>
+                <% } %>
         </div>
 
         <% if(user.id==profile_user.id) {%>
             <div class="update ">
                 <h3>Update Your Profile : </h3>
-                <form action="/users/update/<%=profile_user.id %>" enctype="multipart/form-data" method="POST">
-                    Name : <input type="text" name="name" placeholder="Your Name" value="<%= profile_user.name %>" required>
+                <form class="update-form" action="/users/update/<%=profile_user.id %>" enctype="multipart/form-data" method="POST">
+                    Name : <input type="text" name="name" placeholder="Your Name" value="<%= profile_user.name %>"
+                        required>
                     Email : <input type="email " name="email" placeholder="Your Email" value="<%= profile_user.email %>"
                         required>
                     Avatar : <input type="file" name="avatar" placeholder="Profile Picture">
@@ -30,7 +48,8 @@
                 </form>
             </div>
 
-            <% } %>
+            <% } else { %>
+                <% } %>
     </div>
 
 

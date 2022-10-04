@@ -7,9 +7,7 @@
             onerror=this.src="../images/noavatar.png">
     </div> -->
     <div class="topheader">
-        <div class="comment-user-info">
-            <%= comment.user.name %>
-        </div>
+        <a class="comment-user-info" style="text-decoration: none; " href="/users/profile/<%= comment.user.id%>"><%= comment.user.name %></a>
         <!-- <p class="comment-content"> -->
 
         <div class="delete-button">

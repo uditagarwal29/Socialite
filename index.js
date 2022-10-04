@@ -68,7 +68,13 @@ app.use(session({
         console.log(err || 'connect-mongodb-setup ok')
     })
 }));
-app.use(passport.initialize());  
+app.use(function (req, res, next) {
+    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    res.header('Expires', '-1');
+    res.header('Pragma', 'no-cache');
+    next()
+});
+app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);  //checks if session cookie is present and sets user in locals
 

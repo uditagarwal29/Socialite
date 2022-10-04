@@ -15,6 +15,12 @@
       flex: 1 1 80%;
       font-weight: 900;
       font-size: 15px; }
+    .comment-container .topheader a,
+    .comment-container .topheader a:hover,
+    .comment-container .topheader a:focus,
+    .comment-container .topheader a:active {
+      text-decoration: none;
+      color: inherit; }
     .comment-container .topheader .delete-button {
       margin-right: 0;
       justify-content: flex-end;

@@ -36,8 +36,66 @@
     .wrapper .header p {
       color: white;
       font-size: 20px; }
+    .wrapper .header .add-frnd-btn {
+      width: 150px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: 'Maven Pro', sans-serif;
+      color: #fff;
+      cursor: pointer;
+      margin: 20px;
+      height: 55px;
+      text-align: center;
+      border: none;
+      background-size: 300% 100%;
+      border-radius: 50px;
+      moz-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      -webkit-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out; }
+    .wrapper .header .add-frnd-btn:hover {
+      background-position: 100% 0;
+      moz-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      -webkit-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out; }
+    .wrapper .header .add-frnd-btn:focus {
+      outline: none; }
+    .wrapper .header .add-frnd-btn.bn22 {
+      background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+      box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75); }
+    .wrapper .header .remove-frnd-btn {
+      width: 150px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: 'Maven Pro', sans-serif;
+      color: #fff;
+      cursor: pointer;
+      margin: 20px;
+      height: 55px;
+      text-align: center;
+      border: none;
+      background-size: 300% 100%;
+      border-radius: 50px;
+      moz-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      -webkit-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out; }
+    .wrapper .header .remove-frnd-btn:hover {
+      background-position: 100% 0;
+      moz-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      -webkit-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out; }
+    .wrapper .header .remove-frnd-btn:focus {
+      outline: none; }
+    .wrapper .header .remove-frnd-btn.bn22 {
+      background-image: linear-gradient(to right, #bc3618, #cb582f, #dd4730, #b6402b);
+      box-shadow: 0 4px 15px 0 rgba(186, 65, 43, 0.75); }
   .wrapper .update {
     min-height: 30vh;
+    flex-wrap: wrap;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap; }
+    margin: auto;
+    align-items: center; }
