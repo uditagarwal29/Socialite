@@ -18,7 +18,7 @@ module.exports.profile = async function (req, res) {
     })
 
     let exists = false;
-    if(friendship1 || friendship2){
+    if (friendship1 || friendship2) {
         exists = true
     }
 

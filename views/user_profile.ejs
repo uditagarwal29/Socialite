@@ -35,7 +35,7 @@
                 <% } %>
         </div>
 
-        <% if(user.id==profile_user.id) {%>
+        <% if(locals.user.id==profile_user.id) {%>
             <div class="update ">
                 <h3>Update Your Profile : </h3>
                 <form class="update-form" action="/users/update/<%=profile_user.id %>" enctype="multipart/form-data" method="POST">
