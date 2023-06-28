@@ -48,6 +48,8 @@ console.log('Chat server is listening on PORT : 5000');
 //     else console.log('Redis Connected..!');
 // });
 
+// kue functionality removed because redis was not supporting render.coms
+
 app.use(sassMiddleware({
     src: './assets/scss',
     dest: './assets/css',
