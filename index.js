@@ -28,6 +28,13 @@ const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(5000);
 console.log('Chat server is listening on PORT : 5000');
 
+const client = redis.createClient({
+    url: process.env.REDIS_URL,
+    legacyMode: true,
+    });
+
+await client.connect();
+
 app.use(sassMiddleware({
     src: './assets/scss',
     dest: './assets/css',
