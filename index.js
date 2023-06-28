@@ -19,6 +19,10 @@ const MongoStore = require('connect-mongo'); //to store session information
 const sassMiddleware = require('node-sass-middleware');
 const redis = require('redis')
 
+process.on('uncaughtException', function (err) {
+    console.log(err);
+  });
+
 
 //setting up chat sockets server
 
