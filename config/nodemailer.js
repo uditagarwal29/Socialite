@@ -2,6 +2,7 @@ const nodemailer = require("nodemailer");
 const ejs = require('ejs');
 const path = require('path');
 
+
 //transporter is the part that sends email defines how communication with email service takes place
 let transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -9,8 +10,8 @@ let transporter = nodemailer.createTransport({
     port: 587,
     secure: false,
     auth: {
-        user: 'dummyacc1x1x',
-        pass: 'fvfxpqeukhfdwapm'
+        user: process.env.MAILER_USER,
+        pass: process.env.MAILER_PASS
     }
 }
 );

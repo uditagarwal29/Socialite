@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/socialite');
+mongoose.connect(process.env.MONGO_URL);
 
 const db = mongoose.connection;
 

@@ -9,12 +9,12 @@ module.exports.profile = async function (req, res) {
     //check if friendship with the user whose profile is opened exists or not
     let friendship1 = await Friendships.findOne({
         user_id: userID,
-        friendID: friendID
+        friend_id: friendID
     })
 
     let friendship2 = await Friendships.findOne({
         user_id: friendID,
-        friendID: userID
+        friend_id: userID
     })
 
     let exists = false;
@@ -22,9 +22,11 @@ module.exports.profile = async function (req, res) {
         exists = true
     }
 
+    console.log(exists)
+
     User.findById(req.params.id, function (err, user) {
         return res.render('user_profile', {
-            title: 'Socialite',
+            title: `${user.name}`,
             profile_user: user,
             friendship_status: exists
         })

@@ -1,4 +1,6 @@
 const express = require("express");
+const dotenv = require('dotenv');
+dotenv.config();
 const cookieParser = require('cookie-parser');
 const expressLayouts = require('express-ejs-layouts')
 const flash = require('connect-flash')
@@ -53,7 +55,7 @@ app.set('views', './views');
 app.use(session({
     name: 'socialite',
     //TODO change the secret before deployment
-    secret: 'random', //key to encrypt session data
+    secret: process.env.SESSION_KEY, //key to encrypt session data
     saveUninitialized: false,  // if the user has not logged in and session is not created we dont want to initialize cookie with extra data
     resave: false, // we dont want to rewrite current session's info
     cookie: { //age of cookie(in milliseconds)
@@ -63,7 +65,7 @@ app.use(session({
     //everytime we refresh our server all users are logged out and session cookie resets
     //so we store our session cookie in a persistent storage, i.e mongoDB
     store: MongoStore.create({
-        mongoUrl: 'mongodb://localhost:27017/socialite'
+        mongoUrl: process.env.MONGO_URL
     }, function (err) {
         console.log(err || 'connect-mongodb-setup ok')
     })
