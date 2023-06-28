@@ -17,11 +17,11 @@ const passportLocal = require('./config/passport-local-strategy')
 const passportJWT = require('./config/passport-jwt-strategy')
 const MongoStore = require('connect-mongo'); //to store session information
 const sassMiddleware = require('node-sass-middleware');
-const redis = require('redis')
+// const redis = require('redis')
 
-process.on('uncaughtException', function (err) {
-    console.log(err);
-  });
+// process.on('uncaughtException', function (err) {
+//     console.log(err);
+//   });
 
 
 //setting up chat sockets server
@@ -34,19 +34,19 @@ const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(5000);
 console.log('Chat server is listening on PORT : 5000');
 
-const client = redis.createClient({
-    url: process.env.REDIS_URL
-    });
+// const client = redis.createClient({
+//     url: process.env.REDIS_URL
+//     });
 
-(async () => {
-        await client.connect();
-        console.log("Redis connected "+process.env.REDIS_URL)
-})();
+// (async () => {
+//         await client.connect();
+//         console.log("Redis connected "+process.env.REDIS_URL)
+// })();
 
-client.on('connect', (err)=>{
-    if(err) throw err;
-    else console.log('Redis Connected..!');
-});
+// client.on('connect', (err)=>{
+//     if(err) throw err;
+//     else console.log('Redis Connected..!');
+// });
 
 app.use(sassMiddleware({
     src: './assets/scss',

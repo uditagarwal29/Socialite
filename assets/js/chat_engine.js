@@ -15,7 +15,7 @@ class ChatEngine {
     }
 
     //handles interaction between user and server
-    connectionHandler() {
+    connectionHandler() { 
         let self = this;
         // .on('connect') --> detects a connection event
         this.socket.on('connect', function () {
