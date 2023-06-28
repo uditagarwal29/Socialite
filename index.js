@@ -35,7 +35,10 @@ const client = redis.createClient({
     legacyMode: true,
     });
 
-client.connect()
+(async () => {
+        await client.connect();
+        console.log("Redis connected "+process.env.REDIS_URL)
+})();
 
 app.use(sassMiddleware({
     src: './assets/scss',
