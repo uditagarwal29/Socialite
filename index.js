@@ -31,14 +31,18 @@ chatServer.listen(5000);
 console.log('Chat server is listening on PORT : 5000');
 
 const client = redis.createClient({
-    url: process.env.REDIS_URL,
-    legacyMode: true,
+    url: process.env.REDIS_URL
     });
 
 (async () => {
         await client.connect();
         console.log("Redis connected "+process.env.REDIS_URL)
 })();
+
+client.on('connect', (err)=>{
+    if(err) throw err;
+    else console.log('Redis Connected..!');
+});
 
 app.use(sassMiddleware({
     src: './assets/scss',
