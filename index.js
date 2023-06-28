@@ -17,6 +17,8 @@ const passportLocal = require('./config/passport-local-strategy')
 const passportJWT = require('./config/passport-jwt-strategy')
 const MongoStore = require('connect-mongo'); //to store session information
 const sassMiddleware = require('node-sass-middleware');
+const redis = require('redis')
+
 
 //setting up chat sockets server
 
@@ -33,7 +35,7 @@ const client = redis.createClient({
     legacyMode: true,
     });
 
-await client.connect();
+client.connect()
 
 app.use(sassMiddleware({
     src: './assets/scss',
